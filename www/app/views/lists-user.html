@@ -1,0 +1,31 @@
+<ion-view cache-view="false">
+
+	<div class="bar bar-header bar-custom">
+		<h2 class="title">My lists</h2>
+	</div>
+
+	<ion-content class="content">
+
+		<div class="categories">
+			<ion-list class="categories-list" show-delete="false" can-swipe="true">
+				<ion-item ng-repeat="list in vm.userLists" ng-click="vm.showListMovies(list)">
+					<a class="ion-android-star">{{ list.title }}</a>
+					<p>Movies: {{ list.movies.length }}</p>
+					<ion-option-button class="button-rename" ng-click="vm.renameList(list)">
+	        			Rename
+	        		</ion-option-button>
+					<ion-option-button class="button-custom" ng-click="vm.removeList(list)">
+	        			Remove
+	        		</ion-option-button>
+				</ion-item>
+			</ion-list>
+
+			<a class="button button-add icon-right ion-plus-round" ng-click="vm.newList()">
+				New list
+			</a>
+		</div>
+
+	</ion-content>
+
+</ion-view>
+

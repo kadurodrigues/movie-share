@@ -1,0 +1,107 @@
+<ion-view cache-view="false">
+	
+	<div class="bar bar-header bar-movie" ng-class="{'active': $index == vm.barMovie}">
+		<a class="button button-back icon-left ion-chevron-left button-clear" ng-click="goBack()"></a>
+		<h2 class="title">{{vm.movie.title}}</h2>
+		<a class="button button-share icon-right button-clear"
+		   ng-class="!vm.movieSelected.added ? 'ion-plus-round' : 'ion-ios-upload-outline' " 
+		   ng-click="vm.optionsMovie()">
+		</a>
+	</div>
+
+	<ion-content on-scroll="vm.scrollPosition($index)">
+		
+		<header class="movie-header">
+			<div ng-switch="vm.isLoading">
+				<div class="movie-backdrop">
+					<div class="movie-backdrop-image"
+						 ng-switch-when="false" 
+						 ng-switch="vm.isSuccessful" 
+						 ng-style="{'background-image':'url({{vm.backdrop}})'}">	 	
+					</div>
+				</div>	
+			</div>
+			<div class="movie-title">
+				<h2>{{ vm.movie.title }}</h2>
+			</div>
+		</header>
+
+		<div class="movie-poster movie">
+			<img src="https://image.tmdb.org/t/p/w300{{vm.movie.poster_path}}">
+		</div>
+
+		<div class="movie-data">
+			<p>{{ vm.movie.release_date | date: 'yyyy' }} / {{ vm.movie.runtime }} min</p>
+			<p class="average ion-android-star">{{ vm.movie.vote_average }}</p>
+			<p class="count ion-heart">{{ vm.movie.vote_count }}</p>
+			<ul class="list-movies-info--genre">
+	  			<li ng-repeat="genre in vm.movie.genres | limitTo: vm.genreLimit">
+	  				{{ genre.name }}
+	  			</li>
+	  		</ul>
+		</div>
+
+		<div class="movie-description">
+			<p>{{ vm.movie.overview }}</p>
+		</div>
+
+		<div class="tab-navigation">
+    		<div class="button-bar">
+                <a class="button fade"
+                   ng-class="vm.showCast ? 'button-enable' : 'button-disable'" 
+                   ng-click="vm.openCast()">
+                   Cast
+                </a>
+                <a class="button fade"
+                   ng-class="vm.showInfo ? 'button-enable' : 'button-disable'" 
+                   ng-click="vm.openInfo()">
+                   Details
+                </a>
+            </div>
+	    </div>
+
+	    <div ng-if="vm.showCast">
+			<ul class="movie-list cast">
+				<li ng-repeat="person in vm.cast | limitTo: vm.castLimit">
+					<div class="avatar" 
+					     ng-style="{'background-image':'url({{vm.avatarPath}}{{person.profile_path}})'}"></div>
+					<p>{{ person.name }}</p>
+					<p>as {{ person.character }}</p>
+				</li>
+			</ul>
+		</div>
+
+		<div ng-if="vm.showInfo">
+			<ul class="movie-list info">
+				<li>
+					<span><i class="ion-speakerphone"></i></span>
+					<p>Directed by</p>
+					<p>{{ vm.director }}</p>
+				</li>
+				<li>
+					<span><i class="ion-earth"></i></span>
+					<p>Original Language</p>
+					<p>{{ vm.movie.original_language }}</p>
+				</li>
+				<li>
+					<span><i class="ion-film-marker"></i></span>
+					<p>Production</p>
+					<p>{{ vm.movie.production_companies[0].name }}</p>
+				</li>
+				<li>
+					<span><i class="ion-calendar"></i></span>
+					<p>Release Date</p>
+					<p>{{ vm.movie.release_date | date: 'dd/MM/yyyy' }}</p>
+				</li>
+				<li>
+					<span><i class="ion-cash"></i></span>
+					<p>Budget</p>
+					<p>{{ vm.movie.budget }}</p>
+				</li>
+			</ul>
+		</div>
+		
+	</ion-content>
+
+</ion-view>
+

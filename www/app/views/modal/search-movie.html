@@ -1,0 +1,46 @@
+<ion-modal-view>
+
+	<div class="bar bar-header bar-custom">
+		<h2 class="title">Search</h2>
+		<a class="button button-clear button-back icon-right ion-close-round" ng-click="vm.close()"></a>
+	</div>
+
+	<div class="bar bar-subheader item-input-inset item-input-search" no-tap-scroll="true">
+    		<label class="item-input-wrapper">
+				<i class="icon ion-ios-search placeholder-icon"></i>
+  				<input type="text" placeholder="Search Movie..." 
+  								   ng-model="vm.searchTitle" 
+  								   ng-change="vm.liveSearch()">
+			</label>
+			<button class="button button-clear button-light" 
+					ng-show="vm.searchTitle.length" 
+					ng-click="vm.clearResult()">
+					Cancel
+			</button>      
+    </div>
+
+	<ion-content class="content">
+
+		<ul class="list-movies search" ng-show="vm.movieResult">
+			<div class="item" ng-repeat="movie in vm.movieFound" ng-click="vm.showSearchMovie(movie)">
+		 		<div class="list-movies-poster search">
+  					<img src="https://image.tmdb.org/t/p/w300{{ movie.poster_path }}" />	
+		 		</div>
+		  		<div class="list-movies-info">
+		  			<h2>{{ movie.title }}</h2>
+			  		<p> {{ movie.release_date | date: 'yyyy' }}</p>
+		  		</div>		
+			</div>
+		</ul>
+
+		<div class="row">
+			<div class="col">
+				<p class="empty-message" ng-show="vm.movieNoFound">No Result!</p>
+			</div>
+		</div>
+
+		<br>
+
+	</ion-content>
+
+</ion-modal-view>

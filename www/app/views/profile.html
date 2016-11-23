@@ -1,0 +1,27 @@
+<ion-view hide-back-button="true" cache-view="false">
+
+	<div class="bar bar-header bar-custom">
+		<h2 class="title">Profile</h2>
+	</div>
+
+	<ion-content class="content">
+
+	<div class="row">
+		<div class="col">
+			<div class="list">
+				<div class="item item-avatar" href="#">
+					<img src="https://igcdn-photos-e-a.akamaihd.net/hphotos-ak-xfa1/t51.2885-19/s320x320/13166760_842755002496084_409076369_a.jpg">
+					<h2>{{ user.name }} {{ user.lastName }} </h2>
+					<p>Lists: {{ user.lists.length }}</p>
+					<button class="button button-clear button-link" ng-click="vm.signOut()">
+						Log Out
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	</ion-content>
+
+</ion-view>
+

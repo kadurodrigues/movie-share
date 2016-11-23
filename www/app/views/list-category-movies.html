@@ -1,0 +1,25 @@
+<ion-view>
+
+	<div class="bar bar-header bar-custom">
+		<a class="button button-back icon-left ion-chevron-left button-clear" ng-click="goBack()"></a>
+		<h2 class="title">Popular {{vm.category.name}}</h2>
+	</div>
+
+	<ion-content class="content">
+
+		<ul class="grade-list">
+			<li class="grade-item" ng-repeat="movie in vm.listMovies" ng-click="vm.showMovie(movie)">
+				<div class="grade-item-poster">
+					<img src="https://image.tmdb.org/t/p/w300{{ movie.poster_path }}" />
+				</div>
+				<div class="grade-item-info">
+			  		<p> {{ movie.release_date | date: 'yyyy' }}</p> 
+			  		<p class="ion-android-star">{{ movie.vote_average }}</p>	
+				</div>	
+			</li>
+		</ul>
+			
+	</ion-content>
+
+</ion-view>
+

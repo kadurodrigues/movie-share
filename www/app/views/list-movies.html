@@ -1,0 +1,52 @@
+<ion-view>
+
+	<div class="bar bar-header bar-custom">
+		<a class="button button-clear button-back icon-left ion-chevron-left" ng-click="goBack()"></a>
+		<h2 class="title">{{vm.list.title}}</h2>
+		<a class="button button-clear button-back icon-right ion-plus-round" 
+		   ng-click="vm.addNewMovie()"></a>
+	</div>
+
+	<ion-content class="content">
+		<div ng-switch="vm.isLoading">
+			<ion-list class="list-movies" 
+			          ng-switch-when="false" 
+			          ng-switch="vm.isSuccessful"
+			          show-delete="false" 
+			          can-swipe="true">
+				<ion-item class="item" 
+						  ng-repeat="movie in vm.listMovies" 
+						  ng-click="vm.showMovie(movie)">
+			 		<div class="list-movies-poster">
+	  					<img src="{{vm.path}}{{movie.poster_path}}" />	
+			 		</div>
+			  		<div class="list-movies-info">
+			  			<h2>{{ movie.title }}</h2>
+				  		<p> {{ movie.release_date | date: 'yyyy' }} / {{ movie.runtime }} min</p>
+				  		<span class="average ion-android-star">{{ movie.vote_average }}</span>
+				  		<span class="count ion-heart">{{ movie.vote_count }}</span>
+				  		<ul class="list-movies-info--genre">
+				  			<li ng-repeat="genre in movie.genres | limitTo: vm.genreLimit">
+				  				{{ genre.name }}
+				  			</li>
+				  		</ul>
+			  		</div>
+			  		<ion-option-button class="button-custom" ng-click="vm.removeMovie(movie)">
+	        			Remove
+	        		</ion-option-button>		
+				</ion-item>
+			</ion-list>
+		</div>
+
+		<div class="row">
+			<div class="col">
+				<p class="empty-message" ng-show="vm.noMovies">No movies added!</p>
+			</div>
+		</div>
+
+		<br> <br>
+			
+	</ion-content>
+
+</ion-view>
+

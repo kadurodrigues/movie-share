@@ -1,0 +1,25 @@
+<ion-view>
+
+	<div class="bar bar-header bar-custom">
+		<a class="button button-back icon-left ion-chevron-left button-clear" ng-click="goBack()"></a>
+		<h2 class="title">{{vm.allMoviesTitle}}{{vm.category.name}}</h2>
+	</div>
+
+	<ion-content class="content">
+		<div ng-switch="vm.isLoading">
+			<ul class="grade-list" ng-switch-when="false" ng-switch="vm.isSuccessful">
+				<li class="grade-item" ng-repeat="movie in vm.allMovies" ng-click="vm.showMovie(movie)">
+					<div class="grade-item-poster">
+						<p>{{movie.title}}</p>
+						<div class="grade-poster" 
+						     ng-style="{'background-image':'url({{vm.path}}{{movie.poster_path}})'}">
+						     
+						</div>
+					</div>
+				</li>
+			</ul>
+        </div>	
+	</ion-content>
+
+</ion-view>
+

@@ -1,0 +1,134 @@
+<ion-view hide-back-button="true">
+
+	<div class="bar bar-header bar-custom">
+		<h2 class="title">Movies App</h2>
+	</div>
+
+	<div class="bar bar-subheader">
+		<div class="tab-navigation">
+    		<div class="button-bar">
+                <a class="button fade"
+                   ng-class="vm.showDiscover ? 'button-enable' : 'button-disable'" 
+                   ng-click="vm.openDiscover()">
+                   Discover
+                </a>
+                <a class="button fade"
+                   ng-class="vm.showCategories ? 'button-enable' : 'button-disable'" 
+                   ng-click="vm.openCategories()">
+                   Categories
+                </a>
+            </div>
+    	</div>
+	</div>
+
+	<ion-content class="content-home">
+		
+		<div ng-switch="vm.isLoading">	
+			
+			<div ng-switch-when="false" ng-switch="vm.isSuccessful">
+
+			    <div ng-if="vm.showDiscover">
+					<div class="painel-movies">
+						<header class="painel-movies-header">
+							<h2 class="painel-movies--title">{{vm.popularMoviesTitle}}</h2>
+							<a class="painel-movies--link" 
+							   ng-click="vm.showAllMovies(vm.popularMovies,vm.popularMoviesTitle)">See All</a>
+						</header>
+						<div class="painel-movies-content">
+							<a class="painel-movies-movie"
+							   ng-repeat="movie in vm.popularMovies | limitTo: vm.movieLimit" 
+							   ng-click="vm.showMovie(movie)">
+								<div class="painel-movies-movie-info">
+									<h3 class="painel-movies-movie--title">{{movie.title}}</h3>
+									<p>{{movie.release_date | date: 'yyyy'}}</p>
+								</div>
+								<div class="painel-movies-movie--backdrop"
+									 ng-style="{'background-image':'url({{vm.path}}{{movie.backdrop_path}})'}">
+								</div>
+							</a>
+						</div>
+					</div>
+
+					<div class="painel-movies">
+						<header class="painel-movies-header">
+							<h2 class="painel-movies--title">{{vm.upcomingMoviesTitle}}</h2>
+							<a  class="painel-movies--link" 
+							    ng-click="vm.showAllMovies(vm.upcomingMovies,vm.upcomingMoviesTitle)">See All</a>
+						</header>
+						<div class="painel-movies-content">
+							<a class="painel-movies-movie"
+							   ng-repeat="movie in vm.upcomingMovies | limitTo: vm.movieLimit" 
+							   ng-click="vm.showMovie(movie)">
+								<div class="painel-movies-movie-info">
+									<h3 class="painel-movies-movie--title">{{movie.title}}</h3>
+									<p>{{movie.release_date | date: 'yyyy'}}</p>
+								</div>
+								<div class="painel-movies-movie--backdrop" 
+									 ng-style="{'background-image':'url({{vm.path}}{{movie.backdrop_path}})'}">
+								</div>
+							</a>
+						</div>	
+					</div>
+
+					<div class="painel-movies">
+						<header class="painel-movies-header">
+							<h2 class="painel-movies--title">{{vm.yearMoviesTitle}}</h2>
+							<a  class="painel-movies--link" 
+							    ng-click="vm.showAllMovies(vm.yearMovies,vm.yearMoviesTitle)">See All</a>
+						</header>
+						<div class="painel-movies-content">
+							<a class="painel-movies-movie"
+							   ng-repeat="movie in vm.yearMovies | limitTo: vm.movieLimit" 
+							   ng-click="vm.showMovie(movie)">
+								<div class="painel-movies-movie-info">
+									<h3 class="painel-movies-movie--title">{{movie.title}}</h3>
+									<p>{{movie.release_date | date: 'yyyy'}}</p>
+								</div>
+								<div class="painel-movies-movie--backdrop" 
+									 ng-style="{'background-image':'url({{vm.path}}{{movie.backdrop_path}})'}">
+								</div>
+							</a>
+						</div>	
+					</div>
+
+					<div class="painel-movies">
+						<header class="painel-movies-header">
+							<h2 class="painel-movies--title">{{vm.topRatedMoviesTitle}}</h2>
+							<a  class="painel-movies--link" 
+							    ng-click="vm.showAllMovies(vm.topRatedMovies,vm.topRatedMoviesTitle)">See All</a>
+						</header>
+						<div class="painel-movies-content">
+							<a class="painel-movies-movie highlight" 
+							   ng-repeat="movie in vm.topRatedMovies | limitTo: vm.movieLimit"
+							   ng-click="vm.showMovie(movie)">
+								<div class="painel-movies-movie-info">
+									<h3 class="painel-movies-movie--title">{{movie.title}}</h3>
+									<p>{{movie.release_date | date: 'yyyy'}}</p>
+								</div>
+								<div class="painel-movies-movie--backdrop" 
+									 ng-style="{'background-image':'url({{vm.path}}{{movie.backdrop_path}})'}">
+								</div>
+							</a>
+						</div>	
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+		<div ng-if="vm.showCategories">
+			<div class="categories">
+				<ul class="categories-list">
+					<li ng-repeat="category in vm.categories" ng-click="vm.showCategoryMovies(category)">
+						<a class="ion-film-marker">{{category.name}}</a>
+					</li>
+				</ul>
+			</div>
+			<br /> <br />
+		</div>
+			
+	</ion-content>
+
+</ion-view>
+

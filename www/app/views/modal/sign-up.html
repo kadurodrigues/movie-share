@@ -1,0 +1,43 @@
+<ion-modal-view>
+
+	<ion-header-bar class="bar-custom">
+		<h1 class="title title-center">Sign Up</h1>
+		<button class="button button-icon ion-close-round" side="right" ng-click="vm.closeSignUp()">
+		</button>
+	</ion-header-bar>
+
+	<ion-content>
+		
+		<form name="formSignUp">
+
+			<div class="list list-inset">
+
+				<label class="item item-input">
+					<input type="text" placeholder="First Name" ng-model="vm.user.name" required />
+				</label>
+
+				<label class="item item-input">
+					<input type="text" placeholder="Last Name" ng-model="vm.user.lastName" required />
+				</label>
+
+				<label class="item item-input">
+					<input type="text" placeholder="Email" ng-model="vm.user.email" required />
+				</label>
+
+				<label class="item item-input">
+					<input type="password" placeholder="Password" ng-model="vm.user.password" required />
+				</label>
+
+				<button class="button button-block button-positive" 
+						ng-disabled="formSignUp.$invalid" 
+						ng-click="vm.signUp()">
+						Sign Up
+				</button>
+
+			</div>
+
+		</form>
+
+	</ion-content>
+
+</ion-modal-view>

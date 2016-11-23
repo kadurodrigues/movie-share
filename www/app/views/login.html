@@ -1,0 +1,27 @@
+<ion-view cache-view="false" hide-nav-bar="true" hide-tabs>
+
+	<ion-content>
+
+		<div class="list list-inset list-login">
+
+			<label class="item item-input">
+				<input type="text" placeholder="Email" ng-model="vm.user.email">
+			</label>
+
+			<label class="item item-input">
+				<input type="password" placeholder="Password" ng-model="vm.user.password">
+			</label>
+
+			<button class="button button-block button-custom" ng-click="vm.signIn()">
+				Sign In
+			</button>
+
+			<button class="button button-clear" ng-click="vm.openSignUp()">
+				Sign Up
+			</button>
+
+		</div>
+
+	</ion-content>
+
+</ion-view>

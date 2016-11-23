@@ -1,0 +1,35 @@
+<ion-modal-view>
+
+	<div class="bar bar-header bar-custom">
+		<h2 class="title">Add to list</h2>
+		<button class="button button-clear button-light" 
+				ng-click="vm.closeModal()">
+				Cancel
+		</button> 
+		<button class="button button-clear button-light" 
+				ng-disabled="!vm.listItem" 
+				ng-click="vm.saveMovie()">
+				Save
+		</button>
+	</div>
+
+	<div class="bar bar-subheader list">
+		<h2 class="title">Select a list below:</h2>
+	</div>
+
+	<ion-content>
+		
+		<div class="categories subheader">
+			<ion-list class="categories-list">
+				<ion-radio ng-repeat="list in vm.userLists" ng-click="vm.getList(list)">
+					<i class="ion-android-star"></i>{{ list.title }}	
+				</ion-radio>
+			</ion-list>
+			<a class="button button-add icon-right ion-plus-round" ng-click="vm.newList()">
+				New list
+			</a>
+		</div>
+		
+	</ion-content>
+
+</ion-modal-view>
