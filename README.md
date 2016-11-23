@@ -1,7 +1,7 @@
 Movie Share
 ======================
 
-Movie Share is a hybrid app by Phonegap + AngularJS + Ionic + Firebase, for finding movie information and keeping track of the movies you want to see and those you have already seen.
+Movie Share is a hybrid app developed in Phonegap + AngularJS + Ionic + Firebase, for finding movie information and keeping track of the movies you want to see and those you have already seen.
 
 ## Getting Started
 
