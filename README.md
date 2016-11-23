@@ -5,7 +5,7 @@ Movie Share is an app for finding movie information and keeping track of the mov
 
 ## Screens
 
-![Home](https://www.dropbox.com/s/93p82sl2aerr7e8/home.png?dl=0)
+![Home](https://drive.google.com/file/d/0Bwd2enm8HmytV3FSc0JXcE9WaDA/view?usp=sharing)
 
 (https://www.dropbox.com/s/np13ry095mmm7v4/categories.png?dl=0)
 
