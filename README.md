@@ -1,9 +1,20 @@
 Movie Share
 ======================
 
-Movie Share is an app for finding movie information and keeping track of the movies you want to see and those you have already seen.
+Movie Share is a hybrid app by Phonegap + AngularJS + Ionic + Firebase, for finding movie information and keeping track of the movies you want to see and those you have already seen.
 
-## Screens
+## Getting Started
+
+**Install Ionic**
+
+If you haven't installed Ionic already, follow the instructions [here](http://ionicframework.com/getting-started/).
+
+**Emulate the app in a Browser**
+
+    $ phonegap serve
+    $ http://localhost:3000
+
+## Screenshots
 
 <img src="https://cloud.githubusercontent.com/assets/4370657/20548826/f7cfae7e-b10d-11e6-8654-cc46d9040fad.png" width="375" height="667" alt="home">
 <img src="https://cloud.githubusercontent.com/assets/4370657/20548833/034e42ba-b10e-11e6-9fa9-83b07c9415dc.png" width="375" height="667" alt="categories">
