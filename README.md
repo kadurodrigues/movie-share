@@ -5,6 +5,8 @@ Movie Share is an app for finding movie information and keeping track of the mov
 
 ## Screens
 
+<img src="https://cloud.githubusercontent.com/assets/4370657/20548826/f7cfae7e-b10d-11e6-8654-cc46d9040fad.png" width="375" height="667" alt="home">
+
 ![home](https://cloud.githubusercontent.com/assets/4370657/20548826/f7cfae7e-b10d-11e6-8654-cc46d9040fad.png)
 
 ![categories](https://cloud.githubusercontent.com/assets/4370657/20548833/034e42ba-b10e-11e6-9fa9-83b07c9415dc.png)
