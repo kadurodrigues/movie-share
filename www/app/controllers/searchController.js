@@ -4,7 +4,16 @@
 
 	angular
 		.module('movieApp')
-		.controller('searchController', searchController);
+		.controller('searchController', searchController)
+		.directive('autofocus', function($timeout) {
+			return {
+				link: function(scope, element, attrs) {
+					$timeout(function() {
+						element[0].focus(); 
+					},450);
+				}
+			};
+		});
 
 		function searchController($scope, $http, $state, $ionicLoading, $timeout, firebaseDataService, movies){
 
